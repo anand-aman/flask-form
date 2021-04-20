@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+        th, td{
+            padding: 5px;
+        }
+    </style>
+    <title>Reviews</title>
+{% endblock %}
+
+
+{% block body %}
+
+    <h2>Reviews</h2>
+    <p></p>
+    <table>
+        <tr>
+            <th>S No.</th>
+            <th>Rating</th>
+            <th>Nickname</th>
+            <th>Summary</th>
+            <th>Review</th>
+        </tr>
+
+        {% for review in reviews %}
+            <tr>
+                <td>{{ review.id }}</td>
+                <td>{{review.rating}}</td>
+                <td>{{review.nickname}}</td>
+                <td>{{review.summary}}</td>
+                <td>{{review.review}}</td>
+                <td>
+                    <a href="/reviews/delete/{{ review.id }}">Delete</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
